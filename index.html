@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Shanice C Sagonda | Human-Centric Engineering & AI</title>
+    <title>Shanice C Sagonda | Software Engineering, Data, AI and Design</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,7 +19,7 @@
             <a href="#" class="nav-brand">Shanice Sagonda</a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#work">Work</a>
+                <a href="#projects">Projects</a>
                 <a href="#credentials">Certifications</a>
                 <a href="#wip">In Progress</a>
                 <a href="#interests">Interests</a>
@@ -34,11 +32,10 @@
     <header class="hero">
         <div class="container">
             <h1 class="reveal">Shanice C Sagonda</h1>
-            <p class="hero-tagline reveal">Software Engineering · Data Intelligence · Human-Centric AI</p>
-            <p class="reveal hero-description">I design accessible, automated intelligence systems that bridge machine
-                learning, intuitive interfaces, and cognitive usability to reduce load and amplify human potential.</p>
+            <p class="hero-tagline reveal">Software Engineering · Data Intelligence · AI and Machine Learning · UI UX Design · Social Media Strategy</p>
+            <p class="reveal hero-description">I design accessible automated intelligence systems, engaging digital media, and intuitive interfaces that combine data analytics, machine learning models, and cognitive usability.</p>
             <div class="hero-cta reveal">
-                <a href="#work" class="btn">View My Work</a>
+                <a href="#projects" class="btn">View My Projects</a>
                 <a href="mycv/cv.pdf" class="btn btn-outline" target="_blank">View CV (PDF)</a>
             </div>
         </div>
@@ -46,34 +43,29 @@
 
     <main>
         <div class="container">
-            <!-- 01 · About -->
             <section id="about" class="reveal">
                 <div class="section-label">01 · About</div>
-                <p class="lead">I'm a software engineer and researcher focused on the intersection of AI/ML and
-                    human-computer interaction. My work centers on data-driven automation, interactive forecasting, and
-                    inclusive design — transforming complex telemetry into actionable, human-first insights.</p>
+                <p class="lead">I am a software engineer and digital strategist working across software engineering, data analysis, artificial intelligence, UI UX design, and social media analytics. My work combines analytical modeling, visual storytelling, and human computer interaction principles to create high performing digital experiences.</p>
                 <div class="pill-group">
-                    <span class="pill">AI Engineering</span>
-                    <span class="pill">UX Research</span>
-                    <span class="pill">MLOps</span>
-                    <span class="pill">Data Storytelling</span>
+                    <span class="pill">Software Engineering</span>
+                    <span class="pill">Data Analysis</span>
+                    <span class="pill">AI and Machine Learning</span>
+                    <span class="pill">UI UX and Graphic Design</span>
+                    <span class="pill">Social Media Analytics</span>
+                    <span class="pill">Videography and Photography</span>
                 </div>
             </section>
 
-            <!-- 02 · Work (Two projects now) -->
-            <section id="work" class="reveal">
-                <div class="section-label">02 · Featured Work</div>
+            <section id="projects" class="reveal">
+                <div class="section-label">02 · Featured Projects</div>
 
-                <!-- Project 1: WhatsTheRate -->
                 <div class="featured-project">
-                    <h3>WhatsTheRate — AI Currency Intelligence</h3>
-                    <p class="project-summary">An autonomous, end-to-end ML pipeline that forecasts EUR/GBP exchange
-                        rates using a Random Forest ensemble, providing actionable, data-driven transfer
-                        recommendations.</p>
+                    <h3>WhatsTheRate: AI Currency Intelligence</h3>
+                    <p class="project-summary">An autonomous end to end machine learning pipeline that forecasts EUR GBP exchange rates using a Random Forest ensemble, providing actionable data driven transfer recommendations.</p>
                     <div class="tech-badge-list">
                         <span class="tech-badge">Python 3.10</span>
                         <span class="tech-badge">Streamlit</span>
-                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Scikit learn</span>
                         <span class="tech-badge">yfinance</span>
                         <span class="tech-badge">Pandas</span>
                         <span class="tech-badge">GitHub Actions</span>
@@ -82,88 +74,93 @@
                     </div>
                     <div class="architecture-callout">
                         <strong>System Architecture (Three layers):</strong><br>
-                        <strong>1. Automated Data & ML Pipeline:</strong> A daily GitHub Actions workflow fetches fresh
-                        EUR/GBP data, engineers technical indicators (e.g., 30-day moving average), and retrains a
-                        RandomForestRegressor to ensure the model stays adaptive.<br>
-                        <strong>2. Intelligence Logic:</strong> Forecasts the next session's rate using engineered
-                        features with model persistence via joblib. A threshold-based recommendation engine outputs
-                        STRONG BUY, WAIT, or NEUTRAL signals.<br>
-                        <strong>3. Streamlit Web App:</strong> A multi-page interface featuring a live Dashboard, AI
-                        Predictions, and an Optimal Transfer tool that statistically identifies the cheapest weekday for
-                        currency exchange.
+                        <strong>1. Automated Data and ML Pipeline:</strong> A daily GitHub Actions workflow fetches fresh EUR GBP data, engineers technical indicators such as a 30 day moving average, and retrains a RandomForestRegressor to ensure the model stays adaptive.<br>
+                        <strong>2. Intelligence Logic:</strong> Forecasts the next session rate using engineered features with model persistence via joblib. A threshold based recommendation engine outputs STRONG BUY, WAIT, or NEUTRAL signals.<br>
+                        <strong>3. Streamlit Web App:</strong> A multi page interface featuring a live Dashboard, AI Predictions, and an Optimal Transfer tool that statistically identifies the cheapest weekday for currency exchange.
                     </div>
                     <ul class="project-metrics">
-                        <li><strong>Forecast Accuracy:</strong> Achieved a Mean Absolute Error of 0.00299 using lag
-                            signals and volatility features.</li>
-                        <li><strong>DevOps Automation:</strong> A fully automated CI/CD pipeline handles daily
-                            retraining and model commits, drastically reducing manual toil.</li>
-                        <li><strong>HCI Integration:</strong> Prioritizes immediate system feedback, recognition-based
-                            navigation, and clear system state indicators for a low cognitive load.</li>
+                        <li><strong>Forecast Accuracy:</strong> Achieved a Mean Absolute Error of 0.00299 using lag signals and volatility features.</li>
+                        <li><strong>DevOps Automation:</strong> A fully automated CI CD pipeline handles daily retraining and model commits, drastically reducing manual effort.</li>
+                        <li><strong>HCI Integration:</strong> Prioritizes immediate system feedback, recognition based navigation, and clear system state indicators for low cognitive load.</li>
                     </ul>
                     <div class="btn-group">
                         <a href="https://whatstherate.streamlit.app" target="_blank" class="btn">Launch Live App</a>
-                        <a href="https://github.com/sha2w2/whatstherate" target="_blank" class="btn btn-outline">View
-                            Repository</a>
+                        <a href="https://github.com/sha2w2/whatstherate" target="_blank" class="btn btn-outline">View Repository</a>
                     </div>
                 </div>
 
-                <!-- Project 2: Zora -->
                 <div class="featured-project">
-                    <h3>Zora — Tech Accessories E-Commerce Platform</h3>
-                    <p class="project-summary">A fully designed and prototyped e-commerce experience for a modern tech
-                        accessories brand. The project showcases end-to-end product design, from visual identity to
-                        interactive shopping flows.</p>
+                    <h3>ZORA: Conceptual Technology Accessory Platform</h3>
+                    <p class="project-summary">A 17 file conceptual technology accessory brand modeled after the striking aesthetic of BURGA and tailored for a digital native generation, built with vanilla HTML, CSS, and JavaScript.</p>
                     <div class="tech-badge-list">
+                        <span class="tech-badge">HTML</span>
+                        <span class="tech-badge">CSS</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">UI UX Design</span>
+                        <span class="tech-badge">Graphic Design</span>
+                        <span class="tech-badge">Human Computer Interaction</span>
                         <span class="tech-badge">Figma</span>
-                        <span class="tech-badge">UI/UX Design</span>
-                        <span class="tech-badge">Interactive Prototyping</span>
-                        <span class="tech-badge">E-Commerce Design</span>
-                        <span class="tech-badge">Design Systems</span>
                     </div>
                     <div class="architecture-callout">
                         <strong>Design Highlights:</strong><br>
-                        <strong>1. Visual Identity:</strong> Clean, minimalist brand direction with a focus on product
-                        imagery and unapologetic style. The Spring collection launch serves as the centerpiece of the
-                        shopping experience.<br>
-                        <strong>2. Shopping Experience:</strong> A fully interactive prototype featuring product
-                        browsing, category navigation ("Trending Now"), and detailed product cards with pricing —
-                        including cases, power hubs, grips, tumblers, and laptop shells.<br>
-                        <strong>3. Design System:</strong> Consistent component library with free delivery messaging,
-                        new-drop announcements, and a cohesive color palette that scales across product categories.
+                        <strong>1. Cognitive Navigation:</strong> Users explore the catalog through curated moods such as dark and moody, clean and minimal, or color pop. The navigation system uses a mega menu based on the cognitive theory of Miller regarding information processing limits to ensure the interface remains easy to scan.<br>
+                        <strong>2. Interaction Refinement:</strong> The shopping sequence incorporates features such as automatic draft saving to protect user progress. Cart updates include notifications that allow for undoing actions and product pages provide high quality zooming capabilities. A cinematic loading screen constructs the brand logo when the site first opens.<br>
+                        <strong>3. Client Side Simulation:</strong> Every element of the user experience follows a rigorous 25 point framework covering areas such as cognitive demand, visual perception, and error management. The project operates through full client side simulations to demonstrate complex navigation patterns and visual identity design.
                     </div>
                     <ul class="project-metrics">
-                        <li><strong>Prototype:</strong> Fully interactive Figma prototype simulating the complete
-                            shopping journey.</li>
-                        <li><strong>Product Range:</strong> 8+ product categories designed with individual pricing and
-                            visual assets.</li>
-                        <li><strong>Community Published:</strong> Shared on Figma Community for peer review and
-                            collaboration.</li>
+                        <li><strong>Framework Adherence:</strong> Every element follows a rigorous 25 point framework for cognitive demand and visual perception.</li>
+                        <li><strong>Structural Composition:</strong> Consists of 17 foundational files written in vanilla HTML, CSS, and JavaScript.</li>
+                        <li><strong>Community Engagement:</strong> Posted on the Figma community platform for industry peer review and collaboration.</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="https://said-spore-76609500.figma.site/" target="_blank" class="btn">View Live
-                            Prototype</a>
-                        <a href="https://www.figma.com/community/file/1636759129260610683/zora" target="_blank"
-                            class="btn btn-outline">View on Figma Community</a>
+                        <a href="https://www.figma.com/community/file/1636759129260610683/zora" target="_blank" class="btn">View on Figma Community</a>
+                    </div>
+                </div>
+
+                <div class="featured-project">
+                    <h3>IBO 2026: Social Media and Digital Campaign</h3>
+                    <p class="project-summary">End to end visual content production, photography, videography, and algorithmic audience growth for the International Biology Olympiad hosted in Vilnius, Lithuania in July 2026.</p>
+                    <div class="tech-badge-list">
+                        <span class="tech-badge">Social Media Strategy</span>
+                        <span class="tech-badge">Videography</span>
+                        <span class="tech-badge">Photography</span>
+                        <span class="tech-badge">Content Creation</span>
+                        <span class="tech-badge">Page Growth Analytics</span>
+                        <span class="tech-badge">Facebook</span>
+                        <span class="tech-badge">Instagram</span>
+                    </div>
+                    <div class="architecture-callout">
+                        <strong>Campaign Strategy Highlights:</strong><br>
+                        <strong>1. Visual Storytelling and Content Capture:</strong> Executed end to end capture and editing of photos and videos, establishing a vibrant visual identity for an international event hosting participants from over 70 countries in July 2026.<br>
+                        <strong>2. Algorithmic Optimization:</strong> Designed and published digestible digital posts bridging complex scientific themes with modern social media trends to maximize algorithmic reach.<br>
+                        <strong>3. Community Growth:</strong> Built an organic digital community during July 2026, successfully acquiring 1,488 Facebook followers and 1,529 Instagram followers within one week.
+                    </div>
+                    <ul class="project-metrics">
+                        <li><strong>Facebook Community:</strong> Gained 1,488 organic followers during July 2026 on Facebook (@IBO 2026).</li>
+                        <li><strong>Instagram Community:</strong> Gained 1,529 organic followers during July 2026 on Instagram (@ibo2026_lt).</li>
+                        <li><strong>Global Engagement:</strong> Reached hundreds of students and supporters across 70 plus countries.</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://www.facebook.com" target="_blank" class="btn">View Facebook Page</a>
+                        <a href="https://www.instagram.com/ibo2026_lt" target="_blank" class="btn btn-outline">View Instagram Page</a>
                     </div>
                 </div>
             </section>
 
-            <!-- 03 · Certifications -->
             <section id="credentials" class="reveal">
-                <div class="section-label">03 · Certifications & Industry Simulations</div>
+                <div class="section-label">03 · Certifications and Industry Simulations</div>
                 <div class="creds-grid">
                     <div class="cred-card">
                         <div class="cred-issuer"><span class="issuer-badge ibm">IBM</span></div>
                         <div class="cred-name">Frontend Developer</div>
                         <div class="cred-meta">Issued Feb 2026 · Credential KNZGVMBD381X</div>
-                        <div class="cred-skills">User Experience Design (UED) · Web Design · JavaScript · Responsive
-                            Interfaces</div>
+                        <div class="cred-skills">User Experience Design (UED) · Web Design · JavaScript · Responsive Interfaces</div>
                     </div>
                     <div class="cred-card">
                         <div class="cred-issuer"><span class="issuer-badge ibm">IBM</span></div>
                         <div class="cred-name">Enterprise Design Thinking Practitioner</div>
                         <div class="cred-meta">Issued Feb 2026</div>
-                        <div class="cred-skills">Enterprise Design Patterns · User Empathy · Loops & Hills</div>
+                        <div class="cred-skills">Enterprise Design Patterns · User Empathy · Loops and Hills</div>
                     </div>
                     <div class="cred-card">
                         <div class="cred-issuer"><span class="issuer-badge ibm">IBM</span></div>
@@ -181,87 +178,69 @@
                         <div class="cred-issuer"><span class="issuer-badge forage">Forage · Wells Fargo</span></div>
                         <div class="cred-name">Software Engineering Job Simulation</div>
                         <div class="cred-meta">Issued Jan 2026 · Credential hEZBbcNg6WuwYn4jz</div>
-                        <div class="cred-skills">Enterprise system architecture · Financial data integrity · Unit
-                            testing</div>
+                        <div class="cred-skills">Enterprise system architecture · Financial data integrity · Unit testing</div>
                     </div>
                     <div class="cred-card">
-                        <div class="cred-issuer"><span class="issuer-badge forage">Forage · Deloitte Australia</span>
-                        </div>
+                        <div class="cred-issuer"><span class="issuer-badge forage">Forage · Deloitte Australia</span></div>
                         <div class="cred-name">Data Analytics Job Simulation</div>
                         <div class="cred-meta">Issued Dec 2025 · ID T5xrZqYQhPN2SNRYZ</div>
-                        <div class="cred-skills">Data Analysis · Forensic Technology · Tableau dashboards · Pay equity
-                            analytics</div>
+                        <div class="cred-skills">Data Analysis · Forensic Technology · Tableau dashboards · Pay equity analytics</div>
                     </div>
                 </div>
             </section>
 
-            <!-- 04 · Work in Progress -->
             <section id="wip" class="reveal">
                 <div class="section-label">04 · Work in Progress</div>
                 <div class="featured-project">
-                    <h3>E-Commerce ML Project — Intelligent Retail Analytics</h3>
-                    <p class="project-summary">An end-to-end machine learning project focused on e-commerce data —
-                        building predictive models and analytical frameworks to extract actionable business insights
-                        from retail transaction data.</p>
+                    <h3>Ecommerce ML Project: Intelligent Retail Analytics</h3>
+                    <p class="project-summary">An end to end machine learning project focused on ecommerce transaction data, building predictive models and analytical frameworks to extract actionable business insights.</p>
                     <div class="tech-badge-list">
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">Machine Learning</span>
                         <span class="tech-badge">Data Analysis</span>
-                        <span class="tech-badge">E-Commerce Analytics</span>
+                        <span class="tech-badge">Ecommerce Analytics</span>
                     </div>
                     <div class="architecture-callout">
                         <strong>Project Scope:</strong><br>
-                        This project applies machine learning techniques to real-world e-commerce data, focusing on
-                        customer behavior analysis, sales forecasting, and data-driven retail optimization. The work
-                        explores feature engineering, model selection, and evaluation in a business context.
+                        This project applies machine learning techniques to real world ecommerce data, focusing on customer behavior analysis, sales forecasting, and data driven retail optimization. The work explores feature engineering, model selection, and evaluation in a business context.
                     </div>
                     <ul class="project-metrics">
-                        <li><strong>Domain:</strong> E-commerce and retail analytics with a focus on actionable business
-                            intelligence.</li>
-                        <li><strong>Approach:</strong> End-to-end ML pipeline — from data preprocessing through model
-                            evaluation.</li>
-                        <li><strong>Status:</strong> Active development — repository updated regularly with new findings
-                            and model iterations.</li>
+                        <li><strong>Domain:</strong> Ecommerce and retail analytics with a focus on actionable business intelligence.</li>
+                        <li><strong>Approach:</strong> End to end ML pipeline from data preprocessing through model evaluation.</li>
+                        <li><strong>Status:</strong> Active development with regular updates to model iterations and findings.</li>
                     </ul>
                     <div class="btn-group">
-                        <a href="https://github.com/sha2w2/ecommerce_MLproject" target="_blank" class="btn">View
-                            Repository</a>
+                        <a href="https://github.com/sha2w2/ecommerce_MLproject" target="_blank" class="btn">View Repository</a>
                     </div>
                 </div>
             </section>
 
-            <!-- 05 · Interests -->
             <section id="interests" class="reveal">
-                <div class="section-label">05 · Cognitive & Creative Domains</div>
-                <h3 class="section-subtitle">Bridging human perception & machine intelligence</h3>
+                <div class="section-label">05 · Core Competencies and Interests</div>
+                <h3 class="section-subtitle">Integrating software, data intelligence, design, and media</h3>
                 <div class="interests-flex">
-                    <span class="interest-pill">AI & Machine Learning</span>
-                    <span class="interest-pill">UI/UX Design (HCI-Driven)</span>
-                    <span class="interest-pill">Data Science & Visualization</span>
-                    <span class="interest-pill">Audiovisual Technologies</span>
-                    <span class="interest-pill">Computer Graphics & Visualisation</span>
-                    <span class="interest-pill">Cognitive Systems</span>
+                    <span class="interest-pill">Software Engineering</span>
+                    <span class="interest-pill">Data Analysis and Science</span>
+                    <span class="interest-pill">AI and Machine Learning</span>
+                    <span class="interest-pill">UI UX and Graphic Design</span>
+                    <span class="interest-pill">Social Media Strategy and Analytics</span>
+                    <span class="interest-pill">Videography and Photography</span>
+                    <span class="interest-pill">Cognitive Systems and HCI</span>
                 </div>
-                <p class="interests-description">I'm driven to craft multisensory experiences that combine auditory
-                    feedback, real-time visuals, and predictive models to systematically reduce cognitive friction.</p>
+                <p class="interests-description">I am passionate about creating multisensory digital experiences that combine data analytics, real time visual interfaces, predictive machine learning models, and strategic visual media.</p>
             </section>
 
-            <!-- 06 · Contact -->
             <section id="contact" class="reveal">
-                <div class="section-label">06 · Connect & Collaborate</div>
+                <div class="section-label">06 · Connect and Collaborate</div>
                 <div class="contact-box">
-                    <h2>Let's build human-first systems.</h2>
-                    <p>I'm open to opportunities in software engineering, data science, and HCI research.</p>
+                    <h2>Let's build intelligent, human centric systems.</h2>
+                    <p>I am open to opportunities in software engineering, data analysis, AI ML development, UI UX design, and social media strategy.</p>
                     <div class="contact-links">
-                        <a href="https://www.linkedin.com/in/shanicecsagonda/" target="_blank" class="btn"
-                            style="background: #0A66C2; color: white; border-radius: 40px;">Connect on LinkedIn</a>
-                        <a href="https://www.kaggle.com/shanicesagonda" target="_blank" class="btn btn-outline">View
-                            Kaggle Profile</a>
+                        <a href="https://www.linkedin.com/in/shanicecsagonda/" target="_blank" class="btn" style="background: #0A66C2; color: white; border-radius: 40px;">Connect on LinkedIn</a>
+                        <a href="https://www.kaggle.com/shanicesagonda" target="_blank" class="btn btn-outline">View Kaggle Profile</a>
                         <a href="mycv/cv.pdf" class="btn btn-outline" target="_blank">View CV</a>
                     </div>
-                    <p class="contact-note">Direct connection via LinkedIn is preferred for fast, transparent, and
-                        low-friction communication. My Kaggle profile showcases ongoing data science work and
-                        competition entries.</p>
+                    <p class="contact-note">Direct connection via LinkedIn is preferred for fast and clear communication. My Kaggle profile showcases ongoing data science work and analytics entries.</p>
                 </div>
             </section>
         </div>
@@ -269,8 +248,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Shanice C Sagonda — Engineered with HCI-first principles, system feedback, and cognitive
-                accessibility.</p>
+            <p>&copy; 2026 Shanice C Sagonda · Engineered with human centric principles, data intelligence, and cognitive accessibility.</p>
         </div>
     </footer>
 
