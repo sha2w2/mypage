@@ -7,8 +7,8 @@
 <meta name="description" content="Software Engineering student focused on frontend development, quality assurance, data analysis, AI and machine learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 <div id="progress"></div>
@@ -36,19 +36,14 @@
 <div class="crumbs"><div class="wrap"><ol id="crumbs" aria-label="Breadcrumb"><li aria-current="page">Home</li></ol></div></div>
 
 <header class="hero" id="top" data-crumb="Home">
+  <div class="shapes" aria-hidden="true"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i><i class="s5"></i></div>
   <div class="wrap">
     <h1>Shanice C Sagonda</h1>
     <p class="role" aria-live="off">Software Engineering student, <span id="role">frontend developer</span></p>
-    <p class="sub">I build clear, accessible interfaces and the data and testing work behind them. Currently looking for opportunities to grow in frontend, QA, data and AI.</p>
+    <p class="sub">I build clear, accessible interfaces and the data and testing work behind them. </p>
     <div class="btns">
       <a href="#projects" class="btn">See my projects</a>
       <a href="#contact" class="btn ghost">Get in touch</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><b data-to="0.003" data-dec="3">0.003</b><small>GBP error on daily rate forecasts</small></div>
-      <div class="stat"><b data-to="70" data-suffix="+">70+</b><small>countries reached by IBO 2026 campaign</small></div>
-      <div class="stat"><b data-to="3017" data-sep="1">3,017</b><small>organic followers gained in July 2026</small></div>
-      <div class="stat"><b data-to="6">6</b><small>certifications and job simulations</small></div>
     </div>
   </div>
 </header>
@@ -57,7 +52,7 @@
 <section id="about" data-crumb="About">
   <div class="wrap reveal">
     <h2>About me</h2>
-    <p class="intro">I am a Software Engineering student. Choose a field to see what I do in it.</p>
+    <p class="intro">I am a Software Engineering student, and I specialise in the four areas below. Select one to see what that means in practice.</p>
     <div class="chips" role="tablist" aria-label="Fields of interest" data-tabs>
       <button class="chip" role="tab" aria-selected="true" aria-controls="f1">Frontend development</button>
       <button class="chip" role="tab" aria-selected="false" aria-controls="f2">Quality assurance</button>
@@ -84,14 +79,24 @@
       <div>
         <h3>WhatsTheRate</h3>
         <p class="lede">A web app that analyses and forecasts the EUR/GBP exchange rate and tells you when to transfer.</p>
+        <div class="kpis"><div><b data-to="0.003" data-dec="3">0.003</b><small>GBP forecast error</small></div><div><b data-to="3">3</b><small>analysis pages</small></div><div><b data-to="1" data-suffix="x daily">1x daily</b><small>automatic retraining</small></div></div>
         <div class="tabs" role="tablist" data-tabs>
           <button class="tab" role="tab" aria-selected="true" aria-controls="r1">Overview</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="rl">Languages</button>
           <button class="tab" role="tab" aria-selected="false" aria-controls="r2">How it works</button>
           <button class="tab" role="tab" aria-selected="false" aria-controls="r3">Results</button>
         </div>
         <div class="tp" id="r1" role="tabpanel">
           <p>A Streamlit app with a landing page and three pages: Dashboard, Predictions and Optimal Transfer. A daily automated pipeline downloads market data and retrains the model, so the app is always current.</p>
           <div class="badges"><span>Python</span><span>Streamlit</span><span>Scikit-learn</span><span>yfinance</span><span>Pandas</span><span>GitHub Actions</span><span>Joblib</span><span>Matplotlib</span></div>
+        </div>
+        <div class="tp" id="rl" role="tabpanel" hidden>
+          <p>The whole project is written in Python, plus one YAML file for automation.</p>
+          <ul>
+            <li><b>Frontend:</b> Python with Streamlit. The interface is built with Python calls, with no hand written HTML, CSS or JavaScript.</li>
+            <li><b>Backend:</b> Python. yfinance and pandas handle data, scikit-learn and joblib handle the model.</li>
+            <li><b>CI/CD:</b> YAML for the GitHub Actions workflow, running on Python 3.10.</li>
+          </ul>
         </div>
         <div class="tp" id="r2" role="tabpanel" hidden>
           <ul>
@@ -118,14 +123,24 @@
       <div>
         <h3>ZORA</h3>
         <p class="lede">A conceptual technology accessory brand modelled after the aesthetic of BURGA and tailored for a digital native generation.</p>
+        <div class="kpis"><div><b data-to="17">17</b><small>source files</small></div><div><b data-to="25">25</b><small>point HCI framework</small></div><div><b data-to="3">3</b><small>browsing moods</small></div></div>
         <div class="tabs" role="tablist" data-tabs>
           <button class="tab" role="tab" aria-selected="true" aria-controls="z1">Overview</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="zl">Languages</button>
           <button class="tab" role="tab" aria-selected="false" aria-controls="z2">Interaction design</button>
           <button class="tab" role="tab" aria-selected="false" aria-controls="z3">Scope</button>
         </div>
         <div class="tp" id="z1" role="tabpanel">
           <p>17 foundational files in vanilla HTML, CSS and JavaScript. The focus is interaction refinement and human computer interaction principles, not commercial use. Every element follows a 25 point framework covering cognitive demand, visual perception and error management.</p>
           <div class="badges"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>HCI</span><span>UI and UX</span><span>Figma</span></div>
+        </div>
+        <div class="tp" id="zl" role="tabpanel" hidden>
+          <p>Built entirely with vanilla web technologies, with no frameworks and no backend.</p>
+          <ul>
+            <li><b>HTML:</b> page structure across the 17 files.</li>
+            <li><b>CSS:</b> layout, visual identity and animation.</li>
+            <li><b>JavaScript:</b> client side simulation of the cart, draft saving, undo and zoom.</li>
+          </ul>
         </div>
         <div class="tp" id="z2" role="tabpanel" hidden>
           <ul>
@@ -158,7 +173,7 @@
 <section id="credentials" data-crumb="Certifications">
   <div class="wrap reveal">
     <h2>Certifications</h2>
-    <p class="intro">Open an issuer to see the credentials and skills.</p>
+    <p class="intro">Six credentials across three issuers. Open an issuer to see the details.</p>
     <details class="acc" open>
       <summary>IBM <span>3 credentials</span></summary>
       <div class="cred"><b>Frontend Developer</b><small>Feb 2026, credential KNZGVMBD381X</small><p>User experience design, web design, JavaScript, responsive interfaces</p></div>
@@ -180,6 +195,7 @@
 <section id="contact" data-crumb="Contact" style="border-bottom:0">
   <div class="wrap reveal">
     <div class="contact">
+      <div class="shapes" aria-hidden="true"><i class="s1"></i><i class="s2"></i><i class="s3"></i></div>
       <h2>Let's work together</h2>
       <p>I am open to opportunities in frontend development, quality assurance, data analysis, and AI and machine learning. LinkedIn is the fastest way to reach me.</p>
       <div class="btns"><a href="https://www.linkedin.com/in/shanicecsagonda/" target="_blank" rel="noopener" class="btn">Connect on LinkedIn</a><a href="https://github.com/sha2w2" target="_blank" rel="noopener" class="btn ghost">GitHub profile</a></div>
