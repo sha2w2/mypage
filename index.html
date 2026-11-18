@@ -1,766 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Shanice C Sagonda | Software Engineering, Data, AI and Design</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Accessible palette: desaturated teal replaces pure blue for CTAs/links */
-            --bg-body: #FFFFFF;
-            --surface-subtle: #F9FAFB;
-            --surface-card: #FFFFFF;
-            --text-primary: #1A2C3E;
-            --text-secondary: #475569;
-            --text-muted: #64748B;
-            --accent-soft: #0D7377;
-            /* HCI compliant: no pure blue for small text */
-            --accent-hover: #0A5C5F;
-            --border-light: #E9EDF2;
-            --focus-ring: #0D7377;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-primary);
-            font-family: 'Inter', 'Instrument Sans', system-ui, -apple-system, sans-serif;
-            line-height: 1.55;
-            font-weight: 400;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- Scroll Progress Bar (System Feedback) --- */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--accent-soft);
-            width: 0%;
-            z-index: 2000;
-            transition: width 0.08s linear;
-        }
-
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 0 1.8rem;
-        }
-
-        /* --- Navigation (Fitts's Law: large hit areas) --- */
-        .top-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-brand {
-            font-weight: 700;
-            font-size: 1.35rem;
-            letter-spacing: -0.3px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: opacity 0.2s;
-            white-space: nowrap;
-        }
-
-        .nav-brand:hover {
-            opacity: 0.8;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.8rem;
-            align-items: center;
-            flex-wrap: wrap; /* Prevents overflow */
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-soft);
-        }
-
-        /* --- Buttons (Redundant coding: shape, color, text) --- */
-        .btn {
-            display: inline-block;
-            background: var(--accent-soft);
-            color: white;
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: background 0.2s, transform 0.1s;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid var(--accent-soft);
-            color: var(--accent-soft);
-        }
-
-        .btn-outline:hover {
-            background: var(--accent-soft);
-            color: white;
-        }
-
-        .btn-nav-cv {
-            padding: 0.5rem 1.5rem;
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-
-        /* --- Hero (First impression: Introduction) --- */
-        .hero {
-            padding: 8rem 0 5rem;
-            background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFE 100%);
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.4rem, 7vw, 3.8rem);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.8rem;
-        }
-
-        .hero-tagline {
-            font-size: 1.35rem;
-            color: var(--text-secondary);
-            font-weight: 450;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-description {
-            margin-top: 1.2rem;
-            max-width: 680px;
-            color: #475569;
-            font-size: 1.1rem;
-        }
-
-        .hero-cta {
-            margin-top: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        /* --- Sections --- */
-        section {
-            padding: 5rem 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            color: var(--accent-soft);
-            margin-bottom: 1.5rem;
-        }
-
-        .lead {
-            font-size: 1.35rem;
-            line-height: 1.45;
-            font-weight: 450;
-            color: var(--text-primary);
-            max-width: 85%;
-        }
-
-        .pill-group {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .pill {
-            background: #EFF3F8;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-        }
-
-        /* --- Featured Project --- */
-        .featured-project {
-            background: var(--surface-subtle);
-            border-radius: 28px;
-            border: 1px solid var(--border-light);
-            padding: 2rem 2.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .featured-project h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-summary {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .tech-badge-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin: 1.2rem 0;
-        }
-
-        .tech-badge {
-            background: #EFF3F8;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .architecture-callout {
-            background: white;
-            border-left: 3px solid var(--accent-soft);
-            padding: 1rem 1.3rem;
-            border-radius: 16px;
-            margin: 1.2rem 0;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .project-metrics {
-            margin: 1rem 0 0.5rem 1.2rem;
-            color: #2c3e50;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        /* --- Certifications (Recognition over recall: issuer badges) --- */
-        .creds-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .cred-card {
-            background: var(--surface-card);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 1.5rem;
-            transition: transform 0.15s ease, border-color 0.2s;
-        }
-
-        .cred-card:hover {
-            border-color: var(--accent-soft);
-            transform: translateY(-2px);
-        }
-
-        .cred-issuer {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 0.75rem;
-        }
-
-        .issuer-badge {
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            color: white;
-        }
-
-        .issuer-badge.ibm {
-            background: #1F3A5F;
-        }
-
-        .issuer-badge.google {
-            background: #4285F4;
-        }
-
-        .issuer-badge.forage {
-            background: #5B2C6E;
-        }
-
-        .cred-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .cred-meta {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 0.6rem;
-        }
-
-        .cred-skills {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-light);
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
-        }
-
-        /* --- Interests --- */
-        .section-subtitle {
-            margin-bottom: 1rem;
-            font-weight: 500;
-            font-size: 1.3rem;
-        }
-
-        .interests-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .interest-pill {
-            background: #F1F4F9;
-            padding: 0.5rem 1.2rem;
-            border-radius: 60px;
-            font-weight: 500;
-            font-size: 0.85rem;
-            color: #1E2F3F;
-        }
-
-        .interests-description {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #475569;
-        }
-
-        /* --- Contact --- */
-        .contact-box {
-            background: var(--surface-subtle);
-            padding: 2.5rem;
-            border-radius: 32px;
-            text-align: center;
-        }
-
-        .contact-box h2 {
-            font-size: 1.7rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .contact-links {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .contact-note {
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* --- Footer --- */
-        footer {
-            padding: 3rem 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border-light);
-        }
-
-        /* --- Animations & Focus (Redundant coding for accessibility) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(14px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--focus-ring);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 760px) {
-            .lead {
-                max-width: 100%;
-                font-size: 1.2rem;
-            }
-
-            .nav-container {
-                flex-direction: column; /* Stack the brand above links to save space */
-                gap: 1rem;
-                padding: 1rem 1.5rem;
-            }
-            
-            .nav-links {
-                gap: 0.8rem;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 580px) {
-            .container {
-                padding: 0 1.2rem;
-            }
-
-            .featured-project {
-                padding: 1.5rem;
-            }
-
-            .hero {
-                padding: 9rem 0 3rem; /* Adjusted for taller mobile header */
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shanice C Sagonda | Software Engineering Student</title>
+<meta name="description" content="Software Engineering student focused on frontend development, quality assurance, data analysis, AI and machine learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="scroll-progress"></div>
+<div id="progress"></div>
 
-    <nav class="top-nav">
-        <div class="nav-container">
-            <a href="#" class="nav-brand">Shanice Sagonda</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#credentials">Certifications</a>
-                <a href="#wip">In Progress</a>
-                <a href="#interests">Interests</a>
-                <a href="#contact">Contact</a>
-                <a href="mycv/cv.pdf" class="btn btn-nav-cv" target="_blank">View CV</a>
-            </div>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a href="#top" class="brand">Shanice Sagonda</a>
+    <button class="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul class="menu" id="menu">
+      <li><a href="#about">About</a></li>
+      <li class="has-dd">
+        <button class="dd" aria-expanded="false" aria-haspopup="true">Projects <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        <div class="dd-panel">
+          <a href="#whatstherate">WhatsTheRate</a>
+          <a href="#zora">ZORA</a>
+          <a href="#ibo">IBO 2026 volunteering</a>
         </div>
-    </nav>
+      </li>
+      <li><a href="#credentials">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <header class="hero">
-        <div class="container">
-            <h1 class="reveal">Shanice C Sagonda</h1>
-            <p class="hero-tagline reveal">Software Engineering · Data Intelligence · AI and Machine Learning · UI UX Design · Social Media Strategy</p>
-            <p class="reveal hero-description">I design accessible automated intelligence systems, engaging digital media, and intuitive interfaces that combine data analytics, machine learning models, and cognitive usability.</p>
-            <div class="hero-cta reveal">
-                <a href="#projects" class="btn">View My Projects</a>
-                <a href="mycv/cv.pdf" class="btn btn-outline" target="_blank">View CV (PDF)</a>
-            </div>
+<div class="crumbs"><div class="wrap"><ol id="crumbs" aria-label="Breadcrumb"><li aria-current="page">Home</li></ol></div></div>
+
+<header class="hero" id="top" data-crumb="Home">
+  <div class="wrap">
+    <h1>Shanice C Sagonda</h1>
+    <p class="role" aria-live="off">Software Engineering student, <span id="role">frontend developer</span></p>
+    <p class="sub">I build clear, accessible interfaces and the data and testing work behind them. Currently looking for opportunities to grow in frontend, QA, data and AI.</p>
+    <div class="btns">
+      <a href="#projects" class="btn">See my projects</a>
+      <a href="#contact" class="btn ghost">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b data-to="0.003" data-dec="3">0.003</b><small>GBP error on daily rate forecasts</small></div>
+      <div class="stat"><b data-to="70" data-suffix="+">70+</b><small>countries reached by IBO 2026 campaign</small></div>
+      <div class="stat"><b data-to="3017" data-sep="1">3,017</b><small>organic followers gained in July 2026</small></div>
+      <div class="stat"><b data-to="6">6</b><small>certifications and job simulations</small></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about" data-crumb="About">
+  <div class="wrap reveal">
+    <h2>About me</h2>
+    <p class="intro">I am a Software Engineering student. Choose a field to see what I do in it.</p>
+    <div class="chips" role="tablist" aria-label="Fields of interest" data-tabs>
+      <button class="chip" role="tab" aria-selected="true" aria-controls="f1">Frontend development</button>
+      <button class="chip" role="tab" aria-selected="false" aria-controls="f2">Quality assurance</button>
+      <button class="chip" role="tab" aria-selected="false" aria-controls="f3">Data analysis</button>
+      <button class="chip" role="tab" aria-selected="false" aria-controls="f4">AI and machine learning</button>
+    </div>
+    <div class="panel" id="f1" role="tabpanel"><p>I build responsive, keyboard friendly interfaces in HTML, CSS and JavaScript, guided by human computer interaction principles. ZORA is my main example, and I hold the IBM Frontend Developer certificate.</p></div>
+    <div class="panel" id="f2" role="tabpanel" hidden><p>I care about interfaces that fail gracefully and are tested before they ship. My Wells Fargo job simulation covered unit testing and financial data integrity, and WhatsTheRate handles missing data without crashing.</p></div>
+    <div class="panel" id="f3" role="tabpanel" hidden><p>I clean, explore and visualise data to answer practical questions, such as which weekday is cheapest for a currency transfer. My Deloitte job simulation covered Tableau dashboards and pay equity analytics.</p></div>
+    <div class="panel" id="f4" role="tabpanel" hidden><p>I train and automate models end to end. WhatsTheRate retrains a Random Forest model every day through GitHub Actions. I also completed Google AI Essentials.</p></div>
+    <p class="also">Also interested in UI and UX design, graphic design, social media strategy, videography and photography.</p>
+  </div>
+</section>
+
+<section id="projects" data-crumb="Projects">
+  <div class="wrap">
+    <h2 class="reveal">Projects</h2>
+    <p class="intro reveal">Click the preview or the button to open each project. Use the tabs for more detail.</p>
+
+    <article class="project reveal" id="whatstherate" data-crumb="WhatsTheRate">
+      <a class="shot" href="https://whatstherate.streamlit.app" target="_blank" rel="noopener" aria-label="Open the WhatsTheRate live app">
+        <img src="gifs/rategif.gif" alt="Animated preview of the WhatsTheRate dashboard" loading="lazy"><span class="tag">Open live app</span>
+      </a>
+      <div>
+        <h3>WhatsTheRate</h3>
+        <p class="lede">A web app that analyses and forecasts the EUR/GBP exchange rate and tells you when to transfer.</p>
+        <div class="tabs" role="tablist" data-tabs>
+          <button class="tab" role="tab" aria-selected="true" aria-controls="r1">Overview</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="r2">How it works</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="r3">Results</button>
         </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <section id="about" class="reveal">
-                <div class="section-label">01 · About</div>
-                <p class="lead">I am a software engineer and digital strategist working across software engineering, data analysis, artificial intelligence, UI UX design, and social media analytics. My work combines analytical modeling, visual storytelling, and human computer interaction principles to create high performing digital experiences.</p>
-                <div class="pill-group">
-                    <span class="pill">Software Engineering</span>
-                    <span class="pill">Data Analysis</span>
-                    <span class="pill">AI and Machine Learning</span>
-                    <span class="pill">UI UX and Graphic Design</span>
-                    <span class="pill">Social Media Analytics</span>
-                    <span class="pill">Videography and Photography</span>
-                </div>
-            </section>
-
-            <section id="projects" class="reveal">
-                <div class="section-label">02 · Featured Projects</div>
-
-                <div class="featured-project">
-                    <h3>WhatsTheRate: AI Currency Intelligence</h3>
-                    <p class="project-summary">An autonomous end to end machine learning pipeline that forecasts EUR GBP exchange rates using a Random Forest ensemble, providing actionable data driven transfer recommendations.</p>
-                    <div class="tech-badge-list">
-                        <span class="tech-badge">Python 3.10</span>
-                        <span class="tech-badge">Streamlit</span>
-                        <span class="tech-badge">Scikit learn</span>
-                        <span class="tech-badge">yfinance</span>
-                        <span class="tech-badge">Pandas</span>
-                        <span class="tech-badge">GitHub Actions</span>
-                        <span class="tech-badge">Joblib</span>
-                        <span class="tech-badge">Matplotlib</span>
-                    </div>
-                    <div class="architecture-callout">
-                        <strong>System Architecture (Three layers):</strong><br>
-                        <strong>1. Automated Data and ML Pipeline:</strong> A daily GitHub Actions workflow fetches fresh EUR GBP data, engineers technical indicators such as a 30 day moving average, and retrains a RandomForestRegressor to ensure the model stays adaptive.<br>
-                        <strong>2. Intelligence Logic:</strong> Forecasts the next session rate using engineered features with model persistence via joblib. A threshold based recommendation engine outputs STRONG BUY, WAIT, or NEUTRAL signals.<br>
-                        <strong>3. Streamlit Web App:</strong> A multi page interface featuring a live Dashboard, AI Predictions, and an Optimal Transfer tool that statistically identifies the cheapest weekday for currency exchange.
-                    </div>
-                    <ul class="project-metrics">
-                        <li><strong>Forecast Accuracy:</strong> Achieved a Mean Absolute Error of 0.00299 using lag signals and volatility features.</li>
-                        <li><strong>DevOps Automation:</strong> A fully automated CI CD pipeline handles daily retraining and model commits, drastically reducing manual effort.</li>
-                        <li><strong>HCI Integration:</strong> Prioritizes immediate system feedback, recognition based navigation, and clear system state indicators for low cognitive load.</li>
-                    </ul>
-                    <div class="btn-group">
-                        <a href="https://whatstherate.streamlit.app" target="_blank" class="btn">Launch Live App</a>
-                        <a href="https://github.com/sha2w2/whatstherate" target="_blank" class="btn btn-outline">View Repository</a>
-                    </div>
-                </div>
-
-                <div class="featured-project">
-                    <h3>ZORA: Conceptual Technology Accessory Platform</h3>
-                    <p class="project-summary">A 17 file conceptual technology accessory brand modeled after the striking aesthetic of BURGA and tailored for a digital native generation, built with vanilla HTML, CSS, and JavaScript.</p>
-                    <div class="tech-badge-list">
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">UI UX Design</span>
-                        <span class="tech-badge">Graphic Design</span>
-                        <span class="tech-badge">Human Computer Interaction</span>
-                        <span class="tech-badge">Figma</span>
-                    </div>
-                    <div class="architecture-callout">
-                        <strong>Design Highlights:</strong><br>
-                        <strong>1. Cognitive Navigation:</strong> Users explore the catalog through curated moods such as dark and moody, clean and minimal, or color pop. The navigation system uses a mega menu based on the cognitive theory of Miller regarding information processing limits to ensure the interface remains easy to scan.<br>
-                        <strong>2. Interaction Refinement:</strong> The shopping sequence incorporates features such as automatic draft saving to protect user progress. Cart updates include notifications that allow for undoing actions and product pages provide high quality zooming capabilities. A cinematic loading screen constructs the brand logo when the site first opens.<br>
-                        <strong>3. Client Side Simulation:</strong> Every element of the user experience follows a rigorous 25 point framework covering areas such as cognitive demand, visual perception, and error management. The project operates through full client side simulations to demonstrate complex navigation patterns and visual identity design.
-                    </div>
-                    <ul class="project-metrics">
-                        <li><strong>Framework Adherence:</strong> Every element follows a rigorous 25 point framework for cognitive demand and visual perception.</li>
-                        <li><strong>Structural Composition:</strong> Consists of 17 foundational files written in vanilla HTML, CSS, and JavaScript.</li>
-                        <li><strong>Community Engagement:</strong> Posted on the Figma community platform for industry peer review and collaboration.</li>
-                    </ul>
-                    <div class="btn-group">
-                        <a href="https://www.figma.com/community/file/1636759129260610683/zora" target="_blank" class="btn">View on Figma Community</a>
-                    </div>
-                </div>
-
-                <div class="featured-project">
-                    <h3>IBO 2026: Social Media and Digital Campaign</h3>
-                    <p class="project-summary">End to end visual content production, photography, videography, and algorithmic audience growth for the International Biology Olympiad hosted in Vilnius, Lithuania in July 2026.</p>
-                    <div class="tech-badge-list">
-                        <span class="tech-badge">Social Media Strategy</span>
-                        <span class="tech-badge">Videography</span>
-                        <span class="tech-badge">Photography</span>
-                        <span class="tech-badge">Content Creation</span>
-                        <span class="tech-badge">Page Growth Analytics</span>
-                        <span class="tech-badge">Facebook</span>
-                        <span class="tech-badge">Instagram</span>
-                    </div>
-                    <div class="architecture-callout">
-                        <strong>Campaign Strategy Highlights:</strong><br>
-                        <strong>1. Visual Storytelling and Content Capture:</strong> Executed end to end capture and editing of photos and videos, establishing a vibrant visual identity for an international event hosting participants from over 70 countries in July 2026.<br>
-                        <strong>2. Algorithmic Optimization:</strong> Designed and published digestible digital posts bridging complex scientific themes with modern social media trends to maximize algorithmic reach.<br>
-                        <strong>3. Community Growth:</strong> Built an organic digital community during July 2026, successfully acquiring 1,488 Facebook followers and 1,529 Instagram followers within one week.
-                    </div>
-                    <ul class="project-metrics">
-                        <li><strong>Facebook Community:</strong> Gained 1,488 organic followers during July 2026 on Facebook (@IBO 2026).</li>
-                        <li><strong>Instagram Community:</strong> Gained 1,529 organic followers during July 2026 on Instagram (@ibo2026_lt).</li>
-                        <li><strong>Global Engagement:</strong> Reached hundreds of students and supporters across 70 plus countries.</li>
-                    </ul>
-                    <div class="btn-group">
-                        <a href="https://www.facebook.com" target="_blank" class="btn">View Facebook Page</a>
-                        <a href="https://www.instagram.com/ibo2026_lt" target="_blank" class="btn btn-outline">View Instagram Page</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="credentials" class="reveal">
-                <div class="section-label">03 · Certifications and Industry Simulations</div>
-                <div class="creds-grid">
-                    <div class="cred-card">
-                        <div class="cred-issuer"><span class="issuer-badge ibm">IBM</span></div>
-                        <div class="cred-name">Frontend Developer</div>
-                        <div class="cred-meta">Issued Feb 2026 · Credential KNZGVMBD381X</div>
-                        <div class="cred-skills">User Experience Design (UED) · Web Design · JavaScript · Responsive Interfaces</div>
-                    </div>
-                    <div class="cred-card">
-                        <div class="cred-issuer"><span class="issuer-badge ibm">IBM</span></div>
-                        <div class="cred-name">Enterprise Design Thinking Practitioner</div>
-                        <div class="cred-meta">Issued Feb 2026</div>
-                        <div class="cred-skills">Enterprise Design Patterns · User Empathy · Loops and Hills</div>
-                    </div>
-                    <div class="cred-card">
-                        <div class="cred-issuer"><span class="issuer-badge ibm">IBM</span></div>
-                        <div class="cred-name">SEO Mastery: Fundamentals to GenAI and GEO Strategies</div>
-                        <div class="cred-meta">Issued Jan 2026 · ID 1U4EP13WQK85</div>
-                        <div class="cred-skills">Search Engine Optimization · Generative AI · GEO</div>
-                    </div>
-                    <div class="cred-card">
-                        <div class="cred-issuer"><span class="issuer-badge google">Google</span></div>
-                        <div class="cred-name">Google AI Essentials</div>
-                        <div class="cred-meta">Issued Dec 2025 · ID QTDN7JPVHQV9</div>
-                        <div class="cred-skills">Artificial Intelligence (AI) · LLM foundations · Responsible AI</div>
-                    </div>
-                    <div class="cred-card">
-                        <div class="cred-issuer"><span class="issuer-badge forage">Forage · Wells Fargo</span></div>
-                        <div class="cred-name">Software Engineering Job Simulation</div>
-                        <div class="cred-meta">Issued Jan 2026 · Credential hEZBbcNg6WuwYn4jz</div>
-                        <div class="cred-skills">Enterprise system architecture · Financial data integrity · Unit testing</div>
-                    </div>
-                    <div class="cred-card">
-                        <div class="cred-issuer"><span class="issuer-badge forage">Forage · Deloitte Australia</span></div>
-                        <div class="cred-name">Data Analytics Job Simulation</div>
-                        <div class="cred-meta">Issued Dec 2025 · ID T5xrZqYQhPN2SNRYZ</div>
-                        <div class="cred-skills">Data Analysis · Forensic Technology · Tableau dashboards · Pay equity analytics</div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="wip" class="reveal">
-                <div class="section-label">04 · Work in Progress</div>
-                <div class="featured-project">
-                    <h3>Ecommerce ML Project: Intelligent Retail Analytics</h3>
-                    <p class="project-summary">An end to end machine learning project focused on ecommerce transaction data, building predictive models and analytical frameworks to extract actionable business insights.</p>
-                    <div class="tech-badge-list">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Machine Learning</span>
-                        <span class="tech-badge">Data Analysis</span>
-                        <span class="tech-badge">Ecommerce Analytics</span>
-                    </div>
-                    <div class="architecture-callout">
-                        <strong>Project Scope:</strong><br>
-                        This project applies machine learning techniques to real world ecommerce data, focusing on customer behavior analysis, sales forecasting, and data driven retail optimization. The work explores feature engineering, model selection, and evaluation in a business context.
-                    </div>
-                    <ul class="project-metrics">
-                        <li><strong>Domain:</strong> Ecommerce and retail analytics with a focus on actionable business intelligence.</li>
-                        <li><strong>Approach:</strong> End to end ML pipeline from data preprocessing through model evaluation.</li>
-                        <li><strong>Status:</strong> Active development with regular updates to model iterations and findings.</li>
-                    </ul>
-                    <div class="btn-group">
-                        <a href="https://github.com/sha2w2/ecommerce_MLproject" target="_blank" class="btn">View Repository</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="interests" class="reveal">
-                <div class="section-label">05 · Core Competencies and Interests</div>
-                <h3 class="section-subtitle">Integrating software, data intelligence, design, and media</h3>
-                <div class="interests-flex">
-                    <span class="interest-pill">Software Engineering</span>
-                    <span class="interest-pill">Data Analysis and Science</span>
-                    <span class="interest-pill">AI and Machine Learning</span>
-                    <span class="interest-pill">UI UX and Graphic Design</span>
-                    <span class="interest-pill">Social Media Strategy and Analytics</span>
-                    <span class="interest-pill">Videography and Photography</span>
-                    <span class="interest-pill">Cognitive Systems and HCI</span>
-                </div>
-                <p class="interests-description">I am passionate about creating multisensory digital experiences that combine data analytics, real time visual interfaces, predictive machine learning models, and strategic visual media.</p>
-            </section>
-
-            <section id="contact" class="reveal">
-                <div class="section-label">06 · Connect and Collaborate</div>
-                <div class="contact-box">
-                    <h2>Let's build intelligent, human centric systems.</h2>
-                    <p>I am open to opportunities in software engineering, data analysis, AI ML development, UI UX design, and social media strategy.</p>
-                    <div class="contact-links">
-                        <a href="https://www.linkedin.com/in/shanicecsagonda/" target="_blank" class="btn" style="background: #0A66C2; color: white; border-radius: 40px;">Connect on LinkedIn</a>
-                        <a href="https://www.kaggle.com/shanicesagonda" target="_blank" class="btn btn-outline">View Kaggle Profile</a>
-                        <a href="mycv/cv.pdf" class="btn btn-outline" target="_blank">View CV</a>
-                    </div>
-                    <p class="contact-note">Direct connection via LinkedIn is preferred for fast and clear communication. My Kaggle profile showcases ongoing data science work and analytics entries.</p>
-                </div>
-            </section>
+        <div class="tp" id="r1" role="tabpanel">
+          <p>A Streamlit app with a landing page and three pages: Dashboard, Predictions and Optimal Transfer. A daily automated pipeline downloads market data and retrains the model, so the app is always current.</p>
+          <div class="badges"><span>Python</span><span>Streamlit</span><span>Scikit-learn</span><span>yfinance</span><span>Pandas</span><span>GitHub Actions</span><span>Joblib</span><span>Matplotlib</span></div>
         </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Shanice C Sagonda · Engineered with human centric principles, data intelligence, and cognitive accessibility.</p>
+        <div class="tp" id="r2" role="tabpanel" hidden>
+          <ul>
+            <li><b>Pipeline:</b> a GitHub Actions workflow runs at midnight UTC. It downloads one year of Yahoo Finance data, computes a 30 day moving average and retrains a Random Forest model.</li>
+            <li><b>Pages:</b> the Dashboard shows the latest rate against the average over the last 60 days. Predictions shows the next session rate and whether it will rise or fall. Optimal Transfer finds the cheapest weekday to buy euros.</li>
+            <li><b>Recommendation:</b> more than 1% below the average gives STRONG BUY, more than 1% above gives WAIT, anything else is NEUTRAL.</li>
+          </ul>
         </div>
-    </footer>
+        <div class="tp" id="r3" role="tabpanel" hidden>
+          <ul>
+            <li>Mean absolute error of about 0.003 GBP in model evaluation notebooks.</li>
+            <li>Data and model loading are cached separately, so pages stay fast.</li>
+            <li>Every page checks for missing data and shows a clear state instead of crashing.</li>
+          </ul>
+        </div>
+        <div class="btns"><a href="https://whatstherate.streamlit.app" target="_blank" rel="noopener" class="btn">Launch live app</a><a href="https://github.com/sha2w2/whatstherate" target="_blank" rel="noopener" class="btn ghost">View repository</a></div>
+      </div>
+    </article>
 
-    <script>
-        (function () {
-            // 1. Reveal animations on scroll
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        revealObserver.unobserve(entry.target); // Performance: only reveal once
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: "0px 0px -10px 0px" });
-            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    <article class="project flip reveal" id="zora" data-crumb="ZORA">
+      <a class="shot" href="https://www.figma.com/community/file/1636759129260610683/zora" target="_blank" rel="noopener" aria-label="Open ZORA on Figma Community">
+        <img src="gifs/zoragif.gif" alt="Animated preview of the ZORA storefront prototype" loading="lazy"><span class="tag">Open on Figma</span>
+      </a>
+      <div>
+        <h3>ZORA</h3>
+        <p class="lede">A conceptual technology accessory brand modelled after the aesthetic of BURGA and tailored for a digital native generation.</p>
+        <div class="tabs" role="tablist" data-tabs>
+          <button class="tab" role="tab" aria-selected="true" aria-controls="z1">Overview</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="z2">Interaction design</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="z3">Scope</button>
+        </div>
+        <div class="tp" id="z1" role="tabpanel">
+          <p>17 foundational files in vanilla HTML, CSS and JavaScript. The focus is interaction refinement and human computer interaction principles, not commercial use. Every element follows a 25 point framework covering cognitive demand, visual perception and error management.</p>
+          <div class="badges"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>HCI</span><span>UI and UX</span><span>Figma</span></div>
+        </div>
+        <div class="tp" id="z2" role="tabpanel" hidden>
+          <ul>
+            <li>Browse by mood, such as dark and moody, clean and minimal, or color pop, instead of categories.</li>
+            <li>A mega menu based on Miller's theory of information processing limits keeps navigation easy to scan.</li>
+            <li>Checkout drafts save automatically, and cart updates include an undo notification.</li>
+            <li>Product pages offer high quality zoom, and a cinematic loading screen builds the logo on first visit.</li>
+          </ul>
+        </div>
+        <div class="tp" id="z3" role="tabpanel" hidden>
+          <p>This is a layout prototype. It uses a small product selection with free stock photography and runs entirely through client side simulation, with no backend, payments or inventory. The goal is to demonstrate navigation patterns and visual identity design.</p>
+        </div>
+        <div class="btns"><a href="https://www.figma.com/community/file/1636759129260610683/zora" target="_blank" rel="noopener" class="btn">View on Figma Community</a></div>
+      </div>
+    </article>
 
-            // 2. Scroll progress bar (system feedback)
-            const progressBar = document.getElementById('scroll-progress');
-            if (progressBar) {
-                window.addEventListener('scroll', () => {
-                    const winScroll = window.scrollY;
-                    const height = document.documentElement.scrollHeight - window.innerHeight;
-                    const scrolled = (winScroll / height) * 100;
-                    progressBar.style.width = scrolled + '%';
-                }, { passive: true }); // Adding passive listener for scroll performance
-            }
+    <article class="compact reveal" id="ibo" data-crumb="IBO 2026 volunteering">
+      <h3>IBO 2026 volunteering</h3>
+      <p class="lede">Volunteer photographer, videographer and social media creator for the International Biology Olympiad in Vilnius, July 2026.</p>
+      <div class="metrics">
+        <div><b>1,488</b><small>Facebook followers</small></div>
+        <div><b>1,529</b><small>Instagram followers</small></div>
+        <div><b>70+</b><small>countries reached</small></div>
+      </div>
+      <div class="btns" style="margin-top:0"><a href="https://www.facebook.com" target="_blank" rel="noopener" class="btn">Facebook page</a><a href="https://www.instagram.com/ibo2026_lt" target="_blank" rel="noopener" class="btn ghost">Instagram page</a></div>
+    </article>
+  </div>
+</section>
 
-            // 3. Active navigation state (redundant coding: color + weight)
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a:not(.btn)');
-            window.addEventListener('scroll', () => {
-                let current = '';
-                const scrollPos = window.scrollY + 150;
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-                    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                navLinks.forEach(link => {
-                    link.style.color = '';
-                    link.style.fontWeight = '500';
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.style.color = 'var(--accent-soft)';
-                        link.style.fontWeight = '600';
-                    }
-                });
-            }, { passive: true }); // Adding passive listener for scroll performance
-        })();
-    </script>
+<section id="credentials" data-crumb="Certifications">
+  <div class="wrap reveal">
+    <h2>Certifications</h2>
+    <p class="intro">Open an issuer to see the credentials and skills.</p>
+    <details class="acc" open>
+      <summary>IBM <span>3 credentials</span></summary>
+      <div class="cred"><b>Frontend Developer</b><small>Feb 2026, credential KNZGVMBD381X</small><p>User experience design, web design, JavaScript, responsive interfaces</p></div>
+      <div class="cred"><b>Enterprise Design Thinking Practitioner</b><small>Feb 2026</small><p>Enterprise design patterns, user empathy, loops and hills</p></div>
+      <div class="cred"><b>SEO Mastery: Fundamentals to GenAI and GEO Strategies</b><small>Jan 2026, ID 1U4EP13WQK85</small><p>Search engine optimization, generative AI, GEO</p></div>
+    </details>
+    <details class="acc">
+      <summary>Google <span>1 credential</span></summary>
+      <div class="cred"><b>Google AI Essentials</b><small>Dec 2025, ID QTDN7JPVHQV9</small><p>Artificial intelligence, LLM foundations, responsible AI</p></div>
+    </details>
+    <details class="acc">
+      <summary>Forage job simulations <span>2 credentials</span></summary>
+      <div class="cred"><b>Wells Fargo: Software Engineering</b><small>Jan 2026, credential hEZBbcNg6WuwYn4jz</small><p>Enterprise system architecture, financial data integrity, unit testing</p></div>
+      <div class="cred"><b>Deloitte Australia: Data Analytics</b><small>Dec 2025, ID T5xrZqYQhPN2SNRYZ</small><p>Data analysis, forensic technology, Tableau dashboards, pay equity analytics</p></div>
+    </details>
+  </div>
+</section>
+
+<section id="contact" data-crumb="Contact" style="border-bottom:0">
+  <div class="wrap reveal">
+    <div class="contact">
+      <h2>Let's work together</h2>
+      <p>I am open to opportunities in frontend development, quality assurance, data analysis, and AI and machine learning. LinkedIn is the fastest way to reach me.</p>
+      <div class="btns"><a href="https://www.linkedin.com/in/shanicecsagonda/" target="_blank" rel="noopener" class="btn">Connect on LinkedIn</a><a href="https://github.com/sha2w2" target="_blank" rel="noopener" class="btn ghost">GitHub profile</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 Shanice C Sagonda</div></footer>
+<button class="top" aria-label="Back to top">&uarr;</button>
+<script src="script.js"></script>
 </body>
-
 </html>
