@@ -64,6 +64,13 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
   $$('.menu a').forEach(a => a.addEventListener('click', closeAll));
 
+  // Shapes follow the pointer slightly
+  const hero = $('.hero');
+  if (!calm && hero) hero.addEventListener('mousemove', e => {
+    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+    $$('.shapes i', hero).forEach((s, i) => s.style.transform = `translate(${x * (i + 1) * -14}px, ${y * (i + 1) * -14}px)`);
+  });
+
   // Gifs: hide the image if the file is missing, the button still works
   $$('.shot img').forEach(img => img.addEventListener('error', () => { img.style.display = 'none'; }));
 
